@@ -28,6 +28,7 @@ set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Xpreprocessor -fopenmp -fPIC")
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 set(THIRD_PARTY_LIB_LIST
+        virt
         event
         pthread
         c)
