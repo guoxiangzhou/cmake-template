@@ -11,7 +11,6 @@ int main() {
 #include <iostream>
 #include <string>
 #include <thread>
-#include <libvirt/libvirt.h>
 
 void timer_cb(evutil_socket_t fd, short what, void *arg)
 {
@@ -23,22 +22,6 @@ void timer_cb(evutil_socket_t fd, short what, void *arg)
 
 int main()
 {
-  virConnectPtr conn;
-  conn = virConnectOpen("qemu:///system");
-
-  int i;
-  int numDomains;
-  int *activeDomains;
-  numDomains = virConnectNumOfDomains(conn);
-  activeDomains = (int*)malloc(sizeof(int) * numDomains);
-  numDomains = virConnectListDomains(conn, activeDomains, numDomains);
-  printf("Active domain IDs:\n");
-  for (i = 0; i < numDomains; i++)
-  {
-    printf(" %d\n", activeDomains[i]);
-  }
-  free(activeDomains);
-
   int sum = 100 / 10 % 3;
   std::cout << "sum = " << sum << std::endl;
 

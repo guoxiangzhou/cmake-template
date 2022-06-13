@@ -25,10 +25,12 @@ option(BUILD_WITH_GPU "build with gpu" OFF)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Xpreprocessor -fopenmp -fPIC")
 
 
+include_directories(/usr/local/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
+link_directories(/usr/local/lib)
+
 set(THIRD_PARTY_LIB_LIST
-        virt
         event
         pthread
         c)
