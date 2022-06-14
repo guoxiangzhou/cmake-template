@@ -1,4 +1,4 @@
-project(demo LANGUAGES CXX)
+project(vgpu LANGUAGES CXX)
 cmake_minimum_required(VERSION 3.0)
 set(CMAKE_CXX_STANDARD 17)
 #set(CMAKE_C_COMPILER "/usr/local/bin/gcc")
@@ -29,13 +29,15 @@ include_directories(/usr/local/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 link_directories(/usr/local/lib)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/dist/${CMAKE_BUILD_TYPE}/lib)
 
 set(THIRD_PARTY_LIB_LIST
         event
         pthread
         c)
 
-add_subdirectory(src)
+add_subdirectory(src/common)
+add_subdirectory(src/server)
 
 if (BUILD_UNIT_TEST)
     add_subdirectory(unittest)
